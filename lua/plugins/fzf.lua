@@ -149,6 +149,7 @@ return {
           },
         },
         files = {
+          follow = true,
           cwd_prompt = false,
           actions = {
             -- ["alt-i"] = { actions.toggle_ignore },
