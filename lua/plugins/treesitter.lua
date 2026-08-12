@@ -1,9 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   init = function()
-    -- Temporary local parser for module::recipe dependencies and the Just 1.55
-    -- constructs used by the CUBRID justfiles. Remove this override and its
-    -- stdpath("data") checkout once the upstream parser fixes:
+    -- Temporary parser fork for module::recipe dependencies and current Just
+    -- constructs used by the CUBRID justfiles. Remove this override once the
+    -- upstream parser fixes:
     -- https://github.com/casey/tree-sitter-just/issues/206
     local group = vim.api.nvim_create_augroup("custom_just_parser", { clear = true })
 
@@ -13,7 +13,8 @@ return {
       callback = function()
         require("nvim-treesitter.parsers").just = {
           install_info = {
-            path = vim.fn.stdpath("data") .. "/tree-sitter-just-workaround",
+            url = "https://github.com/vimkim/tree-sitter-just",
+            revision = "5be5956114ab3abc62e510c6f663138bc874c1f7",
             queries = "queries/just",
           },
           tier = 2,
