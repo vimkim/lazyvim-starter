@@ -26,6 +26,8 @@ local is_windows = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1
 --   opt.clipboard = ""
 -- end
 
+-- Force the built-in OSC 52 provider so yanks reach the local clipboard over SSH.
+vim.g.clipboard = "osc52"
 opt.clipboard = "unnamedplus"
 
 -- Disable banner in netrw
